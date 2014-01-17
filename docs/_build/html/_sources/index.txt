@@ -10,8 +10,7 @@ Contents:
 
 .. toctree::
    :maxdepth: 2
-
-this is a **new** comment
+   stuff.rst
 
 
 Indices and tables
