@@ -10,9 +10,10 @@ fi
 
 git checkout gh-pages
 git checkout master -- docs/_build/html
+git checkout master -- .gitignore
 cp -r docs/_build/html/* .
 rm -rf docs
-git add .
+git add --all .
 git commit -m'auto-updated gh-pages from master'
 git checkout master
 
