@@ -13,6 +13,7 @@ rm -rf $TMP/docs
 mkdir -p $TMP/docs
 cp -r docs/_build/html $TMP/docs
 git checkout gh-pages
+cp -r $TMP/docs/* .
 git add .
 git commit -m'auto-update gh-pages branch'
 git checkout master
