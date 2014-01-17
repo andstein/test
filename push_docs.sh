@@ -8,13 +8,11 @@ if [[ -n $(git status -s) ]]; then
     exit 1
 fi
 
-(cd docs && make html)
-rm -rf $TMP/docs
-mkdir -p $TMP/docs
-cp -r docs/_build/html/* $TMP/docs
 git checkout gh-pages
-cp -r $TMP/docs/* .
+git checkout master -- docs/_build/html
+cp -r docs/_build/html/* .
+rm -rf docs
 git add .
-git commit -m'auto-update gh-pages branch'
+git commit -m'auto-updated gh-pages from master'
 git checkout master
 
