@@ -1,5 +1,6 @@
 #!/bin/bash
 
+TMP=tmp
 cd `dirname $0`
 
 if [[ -n $(git status -s) ]]; then
@@ -8,6 +9,11 @@ if [[ -n $(git status -s) ]]; then
 fi
 
 (cd docs && make html)
-rm -rf tmp
-cp -r docs/_buil/html tmp
+rm -rf $TMP/docs
+mkdir -p $TMP/docs
+cp -r docs/_buil/html $TMP/docs
+git checkout gh-pages
+git add .
+git commit -m'auto-update gh-pages branch'
+git checkout master
 
